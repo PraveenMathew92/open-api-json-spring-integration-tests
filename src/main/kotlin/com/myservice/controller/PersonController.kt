@@ -1,9 +1,7 @@
 package com.myservice.controller
 
 import com.myservice.controller.dto.Person
-import com.myservice.service.PersonService
 import com.github.fge.jsonpatch.JsonPatch
-import org.reactivestreams.Publisher
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
@@ -14,10 +12,6 @@ import java.util.*
 @RestController
 @RequestMapping("/persons")
 class PersonController {
-
-    @Autowired
-    lateinit var service: PersonService
-
     @GetMapping(value = ["/{id}"], produces = ["application/json"])
     fun find(@PathVariable id: UUID): Mono<Person> {
         return Person().toMono()
@@ -31,7 +25,7 @@ class PersonController {
     @PostMapping(consumes = ["application/json"], produces = ["application/json"])
     fun create(@RequestBody personInput:  Mono<Person>): Mono<Map<String, UUID>> {
         return mapOf("id" to
-                UUID.fromString("21a80822-ad80-407e-9c2d-a717b8ea61fe")
+                UUID.fromString("c89429aa-10be-11ea-8d71-362b9e155667")
         ).toMono()
     }
 

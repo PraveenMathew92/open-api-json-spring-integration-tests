@@ -10,7 +10,7 @@ import org.springframework.util.StopWatch
 @Aspect
 class DataAccessLogger {
 
-    @Around("execution(* com.myservice.dal.PersonRepository.*(*))")
+    @Around("execution(* com.myservice.controller.PersonController.*(*))")
     fun logTime(pjp: ProceedingJoinPoint): Any{
 
         val stopWatch = StopWatch()
